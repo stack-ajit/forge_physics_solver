@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+.venv
+venv/
+*.pyc
+.DS_Store
+*.pb
+src/protos/funt/func_pb2.py
+src/protos/core/struct_pb2.py
+output/

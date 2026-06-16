@@ -1,0 +1,148 @@
+{
+  "functions": [
+    {
+      "name": "/physi/kinematics/acceleration(u,v,t)",
+      "input": ["/quant/physia/initial_velocity", "/quant/physia/final_velocity", "/quant/physia/time"],
+      "output": "/result/phy/acceleration",
+      "priority": 1,
+      "label": "a = (v-u)/t",
+      "answer_type": "average",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/kinematics/final_velocity(u,a,t)",
+      "input": ["/quant/physia/initial_velocity", "/result/phy/acceleration", "/quant/physia/time"],
+      "output": "/result/phy/final_velocity_derived",
+      "priority": 1,
+      "label": "v = u + at",
+      "answer_type": "exact",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/kinematics/displacement_uat(u,a,t)",
+      "input": ["/quant/physia/initial_velocity", "/result/phy/acceleration", "/quant/physia/time"],
+      "output": "/result/phy/displacement",
+      "priority": 1,
+      "label": "s = ut + 0.5*at^2",
+      "answer_type": "exact",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/kinematics/displacement_uvt(u,v,t)",
+      "input": ["/quant/physia/initial_velocity", "/quant/physia/final_velocity", "/quant/physia/time"],
+      "output": "/result/phy/displacement",
+      "priority": 1,
+      "label": "s = 0.5*(u+v)*t",
+      "answer_type": "exact",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/kinematics/velocity_sq(u,a,s)",
+      "input": ["/quant/physia/initial_velocity", "/result/phy/acceleration", "/result/phy/displacement"],
+      "output": "/result/phy/final_velocity_sq",
+      "priority": 1,
+      "label": "v^2 = u^2 + 2as",
+      "answer_type": "exact",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/kinematics/time_from_uva(u,v,a)",
+      "input": ["/quant/physia/initial_velocity", "/quant/physia/final_velocity", "/result/phy/acceleration"],
+      "output": "/result/phy/time_derived",
+      "priority": 1,
+      "label": "t = (v-u)/a",
+      "answer_type": "exact",
+      "assumptions": ["constant_acceleration"]
+    },
+    {
+      "name": "/physi/momentum/initial(m,u)",
+      "input": ["/quant/physia/mass", "/quant/physia/initial_velocity"],
+      "output": "/result/phy/initial_momentum",
+      "priority": 1,
+      "label": "pu = m*u",
+      "answer_type": "exact",
+      "assumptions": []
+    },
+    {
+      "name": "/physi/momentum/final(m,v)",
+      "input": ["/quant/physia/mass", "/quant/physia/final_velocity"],
+      "output": "/result/phy/final_momentum",
+      "priority": 1,
+      "label": "pv = m*v",
+      "answer_type": "exact",
+      "assumptions": []
+    },
+    {
+      "name": "/physi/energy/kinetic_initial(m,u)",
+      "input": ["/quant/physia/mass", "/quant/physia/initial_velocity"],
+      "output": "/result/phy/kinetic_energy_initial",
+      "priority": 1,
+      "label": "Ku = 0.5*m*u^2",
+      "answer_type": "exact",
+      "assumptions": []
+    },
+    {
+      "name": "/physi/energy/kinetic_final(m,v)",
+      "input": ["/quant/physia/mass", "/quant/physia/final_velocity"],
+      "output": "/result/phy/kinetic_energy_final",
+      "priority": 1,
+      "label": "Kv = 0.5*m*v^2",
+      "answer_type": "exact",
+      "assumptions": []
+    },
+    {
+      "name": "/physi/dynamics/force_from_dp(pu,pv,t)",
+      "input": ["/result/phy/initial_momentum", "/result/phy/final_momentum", "/quant/physia/time"],
+      "output": "/result/phy/force",
+      "priority": 2,
+      "label": "F = (pv-pu)/t",
+      "answer_type": "average",
+      "assumptions": ["constant_force"]
+    },
+    {
+      "name": "/physi/dynamics/force_from_ma(m,a)",
+      "input": ["/quant/physia/mass", "/result/phy/acceleration"],
+      "output": "/result/phy/force",
+      "priority": 2,
+      "label": "F = m*a",
+      "answer_type": "exact",
+      "assumptions": ["constant_mass"]
+    },
+    {
+      "name": "/physi/energy/work_from_Fs(F,s)",
+      "input": ["/result/phy/force", "/result/phy/displacement"],
+      "output": "/result/phy/work",
+      "priority": 3,
+      "label": "W = F*s",
+      "answer_type": "exact",
+      "assumptions": ["constant_force", "force_along_displacement"]
+    },
+    {
+      "name": "/physi/energy/work_from_ke(Kf,Ki)",
+      "input": ["/result/phy/kinetic_energy_final", "/result/phy/kinetic_energy_initial"],
+      "output": "/result/phy/work",
+      "priority": 3,
+      "label": "W = Kv - Ku",
+      "answer_type": "exact",
+      "assumptions": ["work_energy_theorem"]
+    },
+    {
+      "name": "/physi/power/from_work(W,t)",
+      "input": ["/result/phy/work", "/quant/physia/time"],
+      "output": "/result/phy/power",
+      "priority": 4,
+      "label": "P = W/t",
+      "answer_type": "average",
+      "assumptions": []
+    },
+    {
+      "name": "/physi/power/from_fv(F,v)",
+      "input": ["/result/phy/force", "/quant/physia/final_velocity"],
+      "output": "/result/phy/power",
+      "priority": 5,
+      "label": "P = F*v",
+      "answer_type": "instantaneous",
+      "assumptions": ["evaluated_at_final_velocity"]
+    }
+  ]
+}

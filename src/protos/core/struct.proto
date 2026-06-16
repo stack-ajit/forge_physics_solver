@@ -1,0 +1,7 @@
+syntax = "proto3";
+package forge.core;
+
+// A list of strings — used as map values in FuncIndex
+message StrList {
+    repeated string values = 1;
+}

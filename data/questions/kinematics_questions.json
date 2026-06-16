@@ -1,0 +1,98 @@
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "title": "Find AVERAGE Power",
+      "statement": "A body of mass 3 kg accelerates uniformly from 2 m/s to 10 m/s in 4 seconds. Find the AVERAGE power delivered.",
+      "given": {
+        "/quant/physia/initial_velocity": 2.0,
+        "/quant/physia/final_velocity": 10.0,
+        "/quant/physia/time": 4.0,
+        "/quant/physia/mass": 3.0
+      },
+      "target": "/result/phy/power",
+      "wanted_type": "average",
+      "unit": "W"
+    },
+    {
+      "id": "Q2",
+      "title": "Find INSTANTANEOUS Power",
+      "statement": "A body of mass 3 kg accelerates uniformly from 2 m/s to 10 m/s in 4 seconds. Find the INSTANTANEOUS power at the final velocity.",
+      "given": {
+        "/quant/physia/initial_velocity": 2.0,
+        "/quant/physia/final_velocity": 10.0,
+        "/quant/physia/time": 4.0,
+        "/quant/physia/mass": 3.0
+      },
+      "target": "/result/phy/power",
+      "wanted_type": "instantaneous",
+      "unit": "W"
+    },
+    {
+      "id": "Q3",
+      "title": "Find Power (interpretation unspecified)",
+      "statement": "A body of mass 3 kg accelerates from 2 m/s to 10 m/s in 4 seconds. Find the power. (No interpretation specified - FORGE should report BOTH.)",
+      "given": {
+        "/quant/physia/initial_velocity": 2.0,
+        "/quant/physia/final_velocity": 10.0,
+        "/quant/physia/time": 4.0,
+        "/quant/physia/mass": 3.0
+      },
+      "target": "/result/phy/power",
+      "wanted_type": null,
+      "unit": "W"
+    },
+    {
+      "id": "Q4",
+      "title": "Find Displacement from rest",
+      "statement": "An object starts from rest and accelerates at 5 m/s^2 for 3 seconds. Find the displacement.",
+      "given": {
+        "/quant/physia/initial_velocity": 0.0,
+        "/result/phy/acceleration": 5.0,
+        "/quant/physia/time": 3.0
+      },
+      "target": "/result/phy/displacement",
+      "wanted_type": "exact",
+      "unit": "m"
+    },
+    {
+      "id": "Q5",
+      "title": "Find Acceleration",
+      "statement": "A car speeds up from 5 m/s to 25 m/s in 4 seconds. Find its acceleration.",
+      "given": {
+        "/quant/physia/initial_velocity": 5.0,
+        "/quant/physia/final_velocity": 25.0,
+        "/quant/physia/time": 4.0
+      },
+      "target": "/result/phy/acceleration",
+      "wanted_type": "average",
+      "unit": "m/s^2"
+    },
+    {
+      "id": "Q6",
+      "title": "Find Work using mass and velocities",
+      "statement": "A 5 kg object accelerates from 0 m/s to 12 m/s over 6 seconds. Find the work done on it.",
+      "given": {
+        "/quant/physia/mass": 5.0,
+        "/quant/physia/initial_velocity": 0.0,
+        "/quant/physia/final_velocity": 12.0,
+        "/quant/physia/time": 6.0
+      },
+      "target": "/result/phy/work",
+      "wanted_type": "exact",
+      "unit": "J"
+    },
+    {
+      "id": "Q7",
+      "title": "Deadlock - insufficient information",
+      "statement": "Given only mass 3 kg and acceleration 2 m/s^2, find the power. (Should be UNSOLVABLE.)",
+      "given": {
+        "/quant/physia/mass": 3.0,
+        "/result/phy/acceleration": 2.0
+      },
+      "target": "/result/phy/power",
+      "wanted_type": "average",
+      "unit": "W"
+    }
+  ]
+}
